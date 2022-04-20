@@ -1,0 +1,12 @@
+name = "tiltify"
+type = "webpack"
+
+account_id = "279b1b477f7fe230dec055356f9f8c44"
+workers_dev = true
+route = ""
+zone_id = ""
+compatibility_date = "2022-04-20"
+
+[vars]
+CLIENT_ID = "c08604b252c305aeec2f7b6cd306da96fb06566956d88f3c3109e0d02667ea04"
+REDIRECT_URI = "https://tiltify.soge.workers.dev/"
