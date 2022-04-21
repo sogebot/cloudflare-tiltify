@@ -17,7 +17,7 @@ router.get("/", async ({query}) => {
     method: "POST"
   });
   const json = await response.json();
-  return Response.redirect(`${query.state}/credentials/tiltify/?token=${json.access_token}`, 301);
+  return Response.redirect(`${query.state}/credentials/oauth/tiltify/?token=${json.access_token}`, 301);
 });
 
 router.get("/authorize", async ({query}) => {
