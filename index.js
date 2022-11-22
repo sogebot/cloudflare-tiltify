@@ -17,7 +17,13 @@ router.get("/", async ({query}) => {
     method: "POST"
   });
   const json = await response.json();
-  return Response.redirect(`${query.state}/credentials/oauth/tiltify/?token=${json.access_token}`, 301);
+
+  if (query.state.startsWith('http')) {
+    return Response.redirect(`${query.state}/credentials/oauth/tiltify/?token=${json.access_token}`, 301);
+  } else {
+    const state = JSON.parse(atob(query.state));
+    return Response.redirect(`${state.referrer}/credentials/tiltify/?token=${json.access_token}&server=${state.server}`, 301);
+  }
 });
 
 router.get("/authorize", async ({query}) => {
